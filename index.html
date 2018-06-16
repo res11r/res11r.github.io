@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Etch-a-sketch</title>
+	<link href = "style.css" rel="stylesheet" type="text/css" >
+</head>
+<body>
+
+<script>
+const body = document.querySelector('body');
+const h1 = document.createElement('h1');
+h1.textContent = "Etch-a-Sketch";
+body.appendChild(h1);
+h1.style.cssText = 'text-align:center';
+const btn = document.createElement('button');
+btn.setAttribute('type','button');
+btn.textContent="Reset";
+body.style.textAlign = 'center';
+body.appendChild(btn);
+const div = document.createElement('div');
+body.appendChild(div);
+div.setAttribute('id','main');
+div.style.cssText = 'display:block; width:600px; height:600px; margin: auto';
+for (i=0; i<256;i++) {
+var pixel = document.createElement('div');
+pixel.classList.add('pixel');
+div.appendChild(pixel);
+}
+const pixels = document.querySelectorAll('.pixel');
+ pixels.forEach(function(pixel) {
+	pixel.classList.add('pixelHoverBlack');
+	});
+pixels.forEach(function(pixel) {
+pixel.addEventListener("mouseover", function () {
+pixel.style.opacity = String(parseFloat(getComputedStyle(pixel).getPropertyValue("opacity"))+0.1);
+	
+});
+}); 
+var gridSize;
+var sideLength; 
+ btn.addEventListener("click", 
+ function () {
+ div.innerHTML = '';
+gridSize = prompt('Choose grid size');
+for (i=0; i<(gridSize*gridSize);i++) {
+var pixel = document.createElement('div');
+div.appendChild(pixel);
+pixel.classList.add('pixel');
+sideLength = String(100/parseInt(gridSize))+"%";
+pixel.style.cssText = 'width:'+sideLength+'; height:'+sideLength+
+';vertical-align:top; display:inline-block;margin:0';
+}
+const pixels = document.querySelectorAll('.pixel');
+pixels.forEach(function(pixel) {
+	pixel.classList.add('pixelHoverBlack');
+	});
+pixels.forEach(function(pixel) {
+pixel.addEventListener("mouseover", function () {
+pixel.style.opacity = String(parseFloat(getComputedStyle(pixel).getPropertyValue("opacity"))+0.1);
+	
+});
+}); 
+});
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+.pixel{
+	display:inline-block;
+	margin: 0;
+   float:left;
+	height:6.25%; 
+	width:6.25%;
+	
+}
+
+
+.pixelHoverBlack {
+	background-color:rgb(0,0,0);
+	opacity:0;
+	
+}
